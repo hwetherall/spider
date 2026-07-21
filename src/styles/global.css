@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
+body { background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 14px; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button { color: inherit; }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+h1, h2, h3, h4, p { margin-top: 0; }
+button { -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--coral-soft); color: var(--ink); }
+.sr-live { position: fixed; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; white-space: nowrap; border: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .1em; line-height: 1.25; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 5px; height: 5px; background: var(--coral); }
+.eyebrow svg + span { display: inline; }
+.eyebrow-dark { color: rgba(255,255,255,.6); }
+.section-label { display: block; margin-bottom: 9px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.primary-action, .secondary-action { border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 38px; padding: 0 17px; border: 1px solid transparent; font-size: 12px; font-weight: 700; transition: transform .16s ease, background .16s ease, border-color .16s ease; }
+.primary-action { background: var(--coral); color: #fff; }
+.primary-action:hover { background: var(--coral-dark); transform: translateY(-1px); }
+.secondary-action { background: transparent; border-color: var(--coral-border); color: var(--ink); }
+.secondary-action:hover { border-color: var(--coral); background: var(--coral-soft); }
+.icon-button { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); display: grid; place-items: center; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

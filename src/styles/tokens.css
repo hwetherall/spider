@@ -1,0 +1,24 @@
+:root {
+  --canvas: #f5f4f1;
+  --surface: #ffffff;
+  --surface-warm: #fbfaf8;
+  --ink: #1b1917;
+  --ink-2: #57534f;
+  --muted: #7a716b;
+  --line: #e7e5e4;
+  --line-strong: #d7d3d0;
+  --coral: #f94a38;
+  --coral-dark: #d92f20;
+  --coral-soft: rgba(249, 74, 56, 0.12);
+  --coral-border: rgba(249, 74, 56, 0.3);
+  --navy: #132338;
+  --navy-soft: #1a2a3f;
+  --market: #5d83ff;
+  --market-bright: #7c9bff;
+  --product: #ffb54e;
+  --competitive: #e755ca;
+  --success-bg: #cef5ca;
+  --success-ink: #114e0b;
+  --shadow: 0 18px 50px rgba(28, 27, 25, 0.08);
+  --font-sans: "Plus Jakarta Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
