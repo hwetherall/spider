@@ -234,74 +234,319 @@
     font-size: clamp(11px, 1.05vw, 15px);
     line-height: 1.4;
   }
-  .control-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+  .dispatch-list {
+    list-style: none;
+    margin-top: .8vh;
+  }
+  .dispatch-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: .45vh;
+    color: var(--muted);
+    font-size: clamp(10px, .96vw, 14px);
+    line-height: 1.35;
+  }
+  .dispatch-list li:last-child { margin-bottom: 0; }
+  .dispatch-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--hub);
+  }
+  .dispatch-list b {
+    color: var(--ink);
+    font-weight: 620;
+  }
+  .recommendation-panel {
+    padding: 2.2vh 1.8vw;
+    border-left: 4px solid var(--hub);
+    background: rgba(123,108,246,.09);
     margin-top: .5vh;
   }
-  .control-item {
-    padding: 1.2vh 1.2vw;
-    border-right: 1px solid var(--line);
-  }
-  .control-item:last-child { border-right: 0; }
-  .control-label {
+  .recommendation-panel .num {
     display: block;
-    margin-bottom: .45vh;
-    font-size: clamp(8px, .78vw, 11px);
+    margin-bottom: .8vh;
+    color: var(--hub);
+    font-size: clamp(9px, .88vw, 12px);
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+  .recommendation-panel h3 {
+    font-size: clamp(18px, 2.05vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -.015em;
+    margin-bottom: .8vh;
+  }
+  .recommendation-panel p {
+    max-width: 76ch;
+    color: var(--muted);
+    font-size: clamp(12px, 1.22vw, 17px);
+    line-height: 1.45;
+  }
+  .reason-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6vw;
+    margin-top: 2vh;
+  }
+  .reason {
+    padding-top: 1.2vh;
+    border-top: 2px solid var(--line);
+  }
+  .reason.market { border-top-color: var(--accent); }
+  .reason.product { border-top-color: var(--good); }
+  .reason.competitive { border-top-color: var(--warn); }
+  .reason span {
+    display: block;
+    margin-bottom: .6vh;
+    font-size: clamp(9px, .82vw, 11px);
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--hub);
+    color: var(--muted);
   }
-  .control-item.human .control-label { color: #e0b24d; }
-  .control-item.never .control-label { color: var(--warn); }
-  .control-item p {
-    color: var(--ink);
-    font-size: clamp(10px, 1vw, 14px);
-    line-height: 1.35;
+  .reason strong {
+    display: block;
+    margin-bottom: .4vh;
+    font-size: clamp(12px, 1.22vw, 17px);
+    line-height: 1.3;
   }
-  .watch-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    margin-top: 2vh;
-  }
-  .watch-item {
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 1vw;
-    align-items: center;
-    min-height: 10vh;
-    padding: 1.5vh 1.3vw;
-    background: var(--panel);
-  }
-  .watch-num {
-    color: var(--accent);
-    font-size: clamp(16px, 1.8vw, 26px);
-    font-weight: 650;
-  }
-  .watch-item h3 {
-    font-size: clamp(12px, 1.28vw, 18px);
-    margin-bottom: .35vh;
-  }
-  .watch-item p {
+  .reason p {
     color: var(--muted);
     font-size: clamp(10px, .98vw, 14px);
-    line-height: 1.35;
-  }
-  .decision-bar {
-    margin-top: 1.6vh;
-    padding: 1.5vh 1.3vw;
-    border-left: 4px solid var(--good);
-    background: rgba(107,191,138,.09);
-    font-size: clamp(12px, 1.2vw, 17px);
     line-height: 1.4;
   }
-  .decision-bar b { color: var(--good); }
+  .editorial-example {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1.08fr);
+    align-items: stretch;
+    gap: 1.5vw;
+    margin-top: 1.5vh;
+  }
+  .report-findings {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .report-finding {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 1vw;
+    min-height: 9.4vh;
+    padding: 1.2vh .5vw;
+    border-bottom: 1px solid var(--line);
+  }
+  .report-finding:last-child { border-bottom: 0; }
+  .report-source {
+    display: block;
+    font-size: clamp(9px, .82vw, 11px);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .report-finding:last-child .report-source { color: var(--warn); }
+  .report-claim {
+    font-size: clamp(14px, 1.42vw, 20px);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .compile-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: clamp(28px, 4vw, 56px);
+  }
+  .compiled-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2vh 1.6vw;
+    border-left: 3px solid var(--accent);
+    background: rgba(77,157,224,.07);
+  }
+  .compiled-summary .report-source { margin-bottom: 1vh; }
+  .compiled-summary blockquote {
+    font-size: clamp(15px, 1.65vw, 24px);
+    line-height: 1.42;
+    letter-spacing: -.01em;
+    color: var(--ink);
+  }
+  .unresolved-question {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 1vw;
+    margin-top: 2vh;
+    padding-top: 1.5vh;
+    border-top: 1px solid var(--line);
+  }
+  .unresolved-question span {
+    font-size: clamp(9px, .82vw, 11px);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--warn);
+  }
+  .unresolved-question p {
+    font-size: clamp(13px, 1.28vw, 18px);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .shift-layout {
+    display: grid;
+    grid-template-columns: minmax(270px, .72fr) minmax(0, 1.28fr);
+    gap: 1.6vw;
+    align-items: stretch;
+    margin-top: .2vh;
+  }
+  .shift-network {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.6vh 1.35vw;
+    border: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .map-kicker,
+  .allocation-kicker {
+    display: block;
+    color: var(--muted);
+    font-size: clamp(9px, .8vw, 11px);
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+  .orchestrator-node {
+    margin-top: 1vh;
+    padding: 1.5vh 1.1vw;
+    border-left: 4px solid var(--hub);
+    background: rgba(123,108,246,.1);
+  }
+  .orchestrator-node strong {
+    display: block;
+    margin-bottom: .45vh;
+    font-size: clamp(14px, 1.45vw, 20px);
+    line-height: 1.2;
+  }
+  .orchestrator-node span {
+    display: block;
+    color: var(--muted);
+    font-size: clamp(11px, 1vw, 14px);
+    line-height: 1.35;
+  }
+  .exchange-rail {
+    display: flex;
+    justify-content: center;
+    gap: 1.3vw;
+    padding: 1vh 0;
+    font-size: clamp(10px, .9vw, 13px);
+    font-weight: 650;
+  }
+  .exchange-rail .plans { color: var(--hub); }
+  .exchange-rail .reports { color: var(--good); }
+  .specialist-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .55vw;
+  }
+  .specialist-node {
+    padding: 1.1vh .55vw;
+    border: 1px solid var(--line);
+    background: #111720;
+    color: var(--ink);
+    font-size: clamp(10px, .95vw, 13px);
+    font-weight: 630;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .allocation-panel {
+    min-width: 0;
+  }
+  .allocation-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1vw;
+    margin-bottom: .8vh;
+  }
+  .allocation-heading strong {
+    font-size: clamp(13px, 1.25vw, 18px);
+    line-height: 1.2;
+  }
+  .agent-comparison {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .agent-comparison th,
+  .agent-comparison td {
+    padding: 1.35vh 1vw;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+    font-size: clamp(11px, 1.05vw, 15px);
+    line-height: 1.4;
+  }
+  .agent-comparison thead th {
+    color: var(--ink);
+    font-size: clamp(11px, 1.05vw, 15px);
+    font-weight: 680;
+    background: #111720;
+  }
+  .agent-comparison thead th:first-child {
+    color: var(--muted);
+  }
+  .agent-comparison tbody th {
+    width: 20%;
+    color: var(--muted);
+    font-weight: 620;
+  }
+  .agent-comparison td {
+    color: var(--muted);
+  }
+  .agent-comparison th:last-child,
+  .agent-comparison td:last-child {
+    background: rgba(123,108,246,.07);
+  }
+  .agent-comparison td strong {
+    color: var(--ink);
+    font-weight: 640;
+  }
+  .harness-note {
+    grid-column: 1 / -1;
+    margin-top: -.3vh;
+    padding: 1.1vh 1.2vw;
+    border-left: 3px solid var(--good);
+    background: rgba(107,191,138,.08);
+    color: var(--muted);
+    font-size: clamp(11px, 1vw, 14px);
+    line-height: 1.35;
+  }
+  .harness-note strong { color: var(--ink); }
+
+  .initial-findings-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1vw;
+    margin-bottom: .8vh;
+  }
+  .initial-findings-label span {
+    color: var(--accent);
+    font-size: clamp(9px, .86vw, 12px);
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+  .initial-findings-label small {
+    color: var(--muted);
+    font-size: clamp(9px, .82vw, 11px);
+  }
 
   .nav button:focus-visible {
     outline: 2px solid var(--accent);
@@ -310,12 +555,12 @@
   @media (max-width: 760px) {
     .slide { padding-left: 5vw; padding-right: 5vw; }
     .c3, .c4 { grid-template-columns: repeat(2, 1fr); }
-    .case-flow { grid-template-columns: 1fr; }
-    .case-arrow { transform: rotate(90deg); min-height: 3vh; }
+    .case-flow, .editorial-example, .shift-layout { grid-template-columns: 1fr; }
+    .case-arrow, .compile-arrow { transform: rotate(90deg); min-height: 3vh; }
     .evidence-row { grid-template-columns: 100px 1fr; }
-    .watch-list, .control-strip { grid-template-columns: 1fr; }
-    .control-item { border-right: 0; border-bottom: 1px solid var(--line); }
-    .control-item:last-child { border-bottom: 0; }
+    .report-finding, .unresolved-question { grid-template-columns: 110px 1fr; }
+    .reason-row { grid-template-columns: 1fr; }
+    .shift-network { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     .slide { animation: none; }
@@ -331,15 +576,15 @@
 <section class="slide active">
   <div class="eyebrow">Innovera · Architecture Proposal</div>
   <h1>From a pipeline<br>to a network.</h1>
-  <p class="sub">Three specialist agents can produce three correct reports and still fail to recognise the key trade-off. The next step is bulding a system that works agentically, not programmatically.</p>
+  <p class="sub">Three specialist agents can produce three correct reports and still miss the decision between them. The next step is a system that decides what work is needed next, rather than executing a fixed sequence.</p>
   <div class="footline">A short framing before the working prototype</div>
 </section>
 
 <!-- 2 — TODAY -->
 <section class="slide">
   <span class="tag now">How it works today</span>
-  <h2>A relay race</h2>
-  <p class="kicker">Each agent completes a chapter and hands over. Findings move one way.</p>
+  <h2>A workflow with no return path</h2>
+  <p class="kicker">Each agent answers a fixed brief using everything that came before. Nothing it discovers can change work already completed.</p>
   <svg viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
@@ -349,19 +594,19 @@
     <g>
       <rect x="20"  y="80" width="180" height="76" rx="9" fill="#151b23" stroke="#263040"/>
       <text x="110" y="112" class="lbl" text-anchor="middle">Market Research</text>
-      <text x="110" y="133" class="lbl-sm" text-anchor="middle">writes report</text>
+      <text x="110" y="133" class="lbl-sm" text-anchor="middle">answers fixed brief</text>
 
       <rect x="255" y="80" width="180" height="76" rx="9" fill="#151b23" stroke="#263040"/>
       <text x="345" y="112" class="lbl" text-anchor="middle">Competitive</text>
-      <text x="345" y="133" class="lbl-sm" text-anchor="middle">writes report</text>
+      <text x="345" y="133" class="lbl-sm" text-anchor="middle">prior report added</text>
 
       <rect x="490" y="80" width="180" height="76" rx="9" fill="#151b23" stroke="#263040"/>
       <text x="580" y="112" class="lbl" text-anchor="middle">Product &amp; Tech</text>
-      <text x="580" y="133" class="lbl-sm" text-anchor="middle">writes report</text>
+      <text x="580" y="133" class="lbl-sm" text-anchor="middle">more context added</text>
 
       <rect x="725" y="80" width="180" height="76" rx="9" fill="#151b23" stroke="#263040" stroke-dasharray="4 3"/>
-      <text x="815" y="112" class="lbl" text-anchor="middle">Deliverable</text>
-      <text x="815" y="133" class="lbl-sm" text-anchor="middle">Chapter + Executive Report</text>
+      <text x="815" y="112" class="lbl" text-anchor="middle">Executive Summary</text>
+      <text x="815" y="133" class="lbl-sm" text-anchor="middle">compiles final report</text>
 
       <line x1="205" y1="118" x2="248" y2="118" stroke="#4d9de0" stroke-width="2" marker-end="url(#ar)"/>
       <line x1="440" y1="118" x2="483" y2="118" stroke="#4d9de0" stroke-width="2" marker-end="url(#ar)"/>
@@ -372,12 +617,13 @@
       <path d="M340,202 L350,212 M350,202 L340,212" stroke="#e07a5f" stroke-width="1.8"/>
       <text x="345" y="240" class="lbl-xs" text-anchor="middle" fill="#e07a5f">NO PATH BACK</text>
 
-      <text x="110" y="62" class="lbl-xs" text-anchor="middle">STEP 1</text>
-      <text x="345" y="62" class="lbl-xs" text-anchor="middle">STEP 2</text>
-      <text x="580" y="62" class="lbl-xs" text-anchor="middle">STEP 3</text>
+      <text x="110" y="62" class="lbl-xs" text-anchor="middle">FIXED PROMPT</text>
+      <text x="345" y="62" class="lbl-xs" text-anchor="middle">+ EARLIER WORK</text>
+      <text x="580" y="62" class="lbl-xs" text-anchor="middle">+ MORE CONTEXT</text>
+      <text x="815" y="62" class="lbl-xs" text-anchor="middle">FINAL PASS</text>
     </g>
   </svg>
-  <div class="footline">A late finding can be correct and still arrive too late to reshape the recommendation.</div>
+  <div class="footline">The Executive Summary can reconcile the writing. It cannot reopen the research.</div>
 </section>
 
 <!-- 3 — THE COST -->
@@ -386,132 +632,100 @@
   <h2>Good at coverage.<br>Poor at judgement.</h2>
   <p class="kicker">A pipeline covers every topic. It does not own the trade-off between them.</p>
 
-  <div class="card warn" style="border-left-width:4px; padding:2.4vh 2vw; margin-bottom:1.5vh">
-    <h3 style="font-size:clamp(15px,1.75vw,25px); margin-bottom:1vh">No one owns the trade-off</h3>
-    <p style="font-size:clamp(12px,1.28vw,18px); max-width:76ch; color:var(--ink)">
-      Market finds demand. Competitive finds crowding. Product finds feasibility. The call that matters sits between those findings, not inside any one report.
-    </p>
+  <div class="editorial-example">
+    <div class="report-findings">
+      <div class="report-finding">
+        <span class="report-source">Market report</span>
+        <span class="report-claim">“Demand is strong.”</span>
+      </div>
+      <div class="report-finding">
+        <span class="report-source">Competitive report</span>
+        <span class="report-claim">“The segment is crowded.”</span>
+      </div>
+    </div>
+
+    <div class="compile-arrow" aria-hidden="true">→</div>
+
+    <div class="compiled-summary">
+      <span class="report-source">Executive Summary</span>
+      <blockquote>“Demand is strong, although competition is intense.”</blockquote>
+    </div>
   </div>
 
-  <div class="cards c2">
-    <div class="card warn">
-      <h3>Late findings land too late</h3>
-      <p>A constraint found at the end cannot redirect work that has already been completed.</p>
-    </div>
-    <div class="card warn">
-      <h3>Contradictions become homework</h3>
-      <p>The pipeline prints both sides and leaves leadership to reconcile them.</p>
-    </div>
+  <div class="unresolved-question">
+    <span>Still unanswered</span>
+    <p>Should we narrow the segment, test another route, or gather different evidence?</p>
   </div>
 
-  <div class="footline">Every chapter can be individually correct and the recommendation still be wrong.</div>
+  <div class="footline">A smoother contradiction is still a contradiction.</div>
 </section>
 
-<!-- 4 — WORKED EXAMPLE -->
-<section class="slide">
-  <span class="tag now">A concrete example</span>
-  <h2>One coffee decision.<br>Three valid answers.</h2>
-  <p class="kicker">Italy is locked. One premium SKU. Existing equipment wherever possible.</p>
-
-  <div class="case-flow">
-    <div class="evidence-stack">
-      <div class="evidence-row">
-        <span class="evidence-who">Market</span>
-        <span class="evidence-claim">Familiar espresso has the strongest demand.</span>
-      </div>
-      <div class="evidence-row">
-        <span class="evidence-who">Product</span>
-        <span class="evidence-claim">The same option is easiest to manufacture.</span>
-      </div>
-      <div class="evidence-row">
-        <span class="evidence-who">Competitive</span>
-        <span class="evidence-claim">It also enters the most saturated territory.</span>
-      </div>
-    </div>
-
-    <div class="case-arrow" aria-hidden="true">→</div>
-
-    <div class="outcome-stack">
-      <div class="outcome">
-        <span class="outcome-label">Pipeline outcome</span>
-        <strong>Three true statements.</strong>
-        <p>One unresolved choice is handed to the reader.</p>
-      </div>
-      <div class="outcome orchestrated">
-        <span class="outcome-label">Orchestrator response</span>
-        <strong>Name the tension. Ask the priority. Re-plan the work.</strong>
-        <p>The second round exists because of what the first round found.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footline">The demo will resolve this decision. The point is not the coffee — it is whether the system can turn conflict into the next useful question.</div>
-</section>
-
-<!-- 5 — THE SHIFT -->
+<!-- 4 — THE SHIFT -->
 <section class="slide">
   <span class="tag next">The shift</span>
-  <h2>One owner for the decision</h2>
-  <p class="kicker">Specialists keep domain authority. The Orchestrator keeps canonical state and owns reconciliation.</p>
-  <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-        <path d="M0,0 L9,3.5 L0,7 Z" fill="#7b6cf6"/>
-      </marker>
-      <marker id="ar3" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-        <path d="M0,0 L9,3.5 L0,7 Z" fill="#6bbf8a"/>
-      </marker>
-    </defs>
+  <h2>Give the workflow a return path</h2>
+  <p class="kicker">The Orchestrator does not write another chapter. It holds the shared state, scopes each specialist’s work, and decides what must be investigated next.</p>
+  <div class="shift-layout">
+    <div class="shift-network" role="img" aria-label="The Orchestrator sends plans to three specialist agents and receives their reports">
+      <span class="map-kicker">Decision layer</span>
+      <div class="orchestrator-node">
+        <strong>Orchestrator</strong>
+        <span>Holds state · weighs trade-offs · writes the next plans</span>
+      </div>
+      <div class="exchange-rail" aria-hidden="true">
+        <span class="plans">Plans ↓</span>
+        <span class="reports">Reports ↑</span>
+      </div>
+      <div class="specialist-row">
+        <div class="specialist-node">Market</div>
+        <div class="specialist-node">Competitive</div>
+        <div class="specialist-node">Product &amp; Tech</div>
+      </div>
+    </div>
 
-    <!-- Dual straight rails at 120° — plan out (purple), report in (green) -->
-    <g stroke-width="3.2" fill="none" stroke-linecap="round">
-      <!-- Market -->
-      <line x1="381" y1="133" x2="273" y2="76" stroke="#7b6cf6" marker-end="url(#ar2)"/>
-      <line x1="265" y1="90" x2="374" y2="147" stroke="#6bbf8a" marker-end="url(#ar3)"/>
-      <!-- Competitive -->
-      <line x1="526" y1="147" x2="635" y2="90" stroke="#7b6cf6" marker-end="url(#ar2)"/>
-      <line x1="627" y1="76" x2="519" y2="133" stroke="#6bbf8a" marker-end="url(#ar3)"/>
-      <!-- Product -->
-      <line x1="442" y1="260" x2="442" y2="311" stroke="#7b6cf6" marker-end="url(#ar2)"/>
-      <line x1="458" y1="311" x2="458" y2="260" stroke="#6bbf8a" marker-end="url(#ar3)"/>
-    </g>
-
-    <!-- hub -->
-    <circle cx="450" cy="178" r="82" fill="#1a1626" stroke="#7b6cf6" stroke-width="3"/>
-    <circle cx="450" cy="178" r="74" fill="none" stroke="#7b6cf6" stroke-width="1" opacity=".35"/>
-    <text x="450" y="170" class="lbl" text-anchor="middle" style="font-size:16px">Orchestrator</text>
-    <text x="450" y="192" class="lbl-sm" text-anchor="middle">state · trade-offs · next plans</text>
-
-    <!-- spoke nodes — equal 120° layout -->
-    <rect x="148" y="28" width="168" height="70" rx="10" fill="#151b23" stroke="#263040" stroke-width="1.5"/>
-    <text x="232" y="58" class="lbl" text-anchor="middle">Market</text>
-    <text x="232" y="80" class="lbl-sm" text-anchor="middle">demand · segments</text>
-
-    <rect x="584" y="28" width="168" height="70" rx="10" fill="#151b23" stroke="#263040" stroke-width="1.5"/>
-    <text x="668" y="58" class="lbl" text-anchor="middle">Competitive</text>
-    <text x="668" y="80" class="lbl-sm" text-anchor="middle">saturation · whitespace</text>
-
-    <rect x="366" y="318" width="168" height="70" rx="10" fill="#151b23" stroke="#263040" stroke-width="1.5"/>
-    <text x="450" y="348" class="lbl" text-anchor="middle">Product &amp; Tech</text>
-    <text x="450" y="370" class="lbl-sm" text-anchor="middle">config · feasibility</text>
-
-    <!-- centered legend -->
-    <g>
-      <line x1="268" y1="408" x2="308" y2="408" stroke="#7b6cf6" stroke-width="3" marker-end="url(#ar2)"/>
-      <text x="318" y="412" class="lbl-sm">Orchestrator sends a plan</text>
-      <line x1="530" y1="408" x2="570" y2="408" stroke="#6bbf8a" stroke-width="3" marker-end="url(#ar3)"/>
-      <text x="580" y="412" class="lbl-sm">Agent returns a report</text>
-    </g>
-  </svg>
-  <div class="footline">Evidence meets in one governed state. Contradictions cannot hide between separate chapters.</div>
+    <div class="allocation-panel">
+      <div class="allocation-heading">
+        <span class="allocation-kicker">Capability allocation</span>
+        <strong>Brains where they matter</strong>
+      </div>
+      <table class="agent-comparison">
+        <thead>
+          <tr>
+            <th scope="col">Capability</th>
+            <th scope="col">Sub-agents</th>
+            <th scope="col">Orchestrator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Brain</th>
+            <td><strong>Mid-tier agents</strong></td>
+            <td><strong>Opus-class intelligence</strong><br>Extended reasoning turned on</td>
+          </tr>
+          <tr>
+            <th scope="row">Equipped with</th>
+            <td>Web research, skills, datasets, and specialist tools</td>
+            <td>Shared state, synthesis, cross-agent reconciliation, and re-planning</td>
+          </tr>
+          <tr>
+            <th scope="row">Accountable for</th>
+            <td>Investigate a scoped question and return evidence</td>
+            <td>Decide what matters and what work comes next</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="harness-note"><strong>One managed system:</strong> both tiers run on Claude’s Managed Agents harness. The strongest brain sits at the decision point.</div>
+  </div>
+  <div class="footline">The difference is not running agents in parallel. It is changing the next assignment when evidence changes the question.</div>
 </section>
 
-<!-- 6 — LOOP -->
+<!-- 5 — LOOP -->
 <section class="slide">
   <span class="tag next">The loop</span>
-  <h2>The loop has a human boundary</h2>
-  <p class="kicker">Round two changes because of round one. A human steps in only when evidence cannot settle a material preference.</p>
-  <svg viewBox="0 0 1000 268" xmlns="http://www.w3.org/2000/svg" style="max-height:30vh">
+  <h2>The second dispatch is the proof</h2>
+  <p class="kicker">Round two is not a repeat. Each brief changes in response to what round one found.</p>
+  <svg viewBox="0 0 1000 268" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="ar4" markerWidth="8" markerHeight="8" refX="6.5" refY="2.6" orient="auto">
         <path d="M0,0 L6.5,2.6 L0,5.2 Z" fill="#6b7684"/>
@@ -569,45 +783,89 @@
       <text x="430" y="216" class="lbl-sm" text-anchor="middle" fill="#7b6cf6">re-plan — every new brief names what caused it</text>
     </g>
   </svg>
-
-  <div class="control-strip">
-    <div class="control-item">
-      <span class="control-label">System may</span>
-      <p>Reconcile evidence and issue targeted follow-up work.</p>
-    </div>
-    <div class="control-item human">
-      <span class="control-label">Human decides</span>
-      <p>Preference-sensitive choices that change the strategy.</p>
-    </div>
-    <div class="control-item never">
-      <span class="control-label">System never</span>
-      <p>Silently changes a locked constraint.</p>
-    </div>
-  </div>
-
-  <div class="footline">Every revised brief names its trigger. Every consequential choice has an owner.</div>
+  <div class="footline">Every revised brief names the finding that caused it to change.</div>
 </section>
 
-<!-- 7 — PRODUCT -->
+<!-- 6 — WORKED EXAMPLE -->
 <section class="slide">
-  <span class="tag next">The product</span>
-  <h2>A governed decision loop.<br>Not more reports.</h2>
-  <p class="kicker">The product is the controlled movement from specialist evidence to a recommendation leadership can inspect.</p>
+  <span class="tag next">Italian market entry · Round one</span>
+  <h2>The obvious product<br>is the strategic trap.</h2>
+  <p class="kicker">These are the initial findings our current flow would compile today. The Orchestrator treats them as a starting point, not a verdict.</p>
 
-  <div class="cards c2" style="margin-top:2vh">
-    <div class="card good">
-      <span class="num" style="color:var(--good)">DECISION QUALITY</span>
-      <h3>Conflict changes the work</h3>
-      <p>The system compares specialist evidence, names the tension, and targets the next round at what remains unresolved.</p>
+  <div class="case-flow">
+    <div>
+      <div class="initial-findings-label">
+        <span>Initial findings</span>
+        <small>Current flow output</small>
+      </div>
+      <div class="evidence-stack">
+        <div class="evidence-row">
+          <span class="evidence-who">Market</span>
+          <span class="evidence-claim">Traditional dark-roast ground coffee — the familiar supermarket option — has the broadest demand.</span>
+        </div>
+        <div class="evidence-row">
+          <span class="evidence-who">Product</span>
+          <span class="evidence-claim">It is the easiest option to make with existing equipment.</span>
+        </div>
+        <div class="evidence-row">
+          <span class="evidence-who">Competitive</span>
+          <span class="evidence-claim">The category is brutal: entrenched brands already own awareness and shelf space.</span>
+        </div>
+      </div>
     </div>
-    <div class="card hub">
-      <span class="num" style="color:var(--hub)">DECISION TRACE</span>
-      <h3>Every change has a cause</h3>
-      <p>Canonical state, causal triggers, human escalation, and residual risks make the recommendation auditable from brief to outcome.</p>
+
+    <div class="case-arrow" aria-hidden="true">→</div>
+
+    <div class="outcome-stack">
+      <div class="outcome">
+        <span class="outcome-label">Orchestrator conclusion</span>
+        <strong>The obvious answer wins on demand and feasibility — and loses on strategy.</strong>
+      </div>
+      <div class="outcome orchestrated">
+        <span class="outcome-label">New plans</span>
+        <ul class="dispatch-list">
+          <li><b>Market:</b> explore other options, starting with whole beans and customers with a high propensity to spend.</li>
+          <li><b>Product:</b> explore differentiated product configurations that work with existing equipment.</li>
+          <li><b>Competitive:</b> test headroom across the candidate segment and product options the other agents surface.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="footline">The value is not agent count. It is a decision process that can explain <em>what changed, why, and who decided</em>.</div>
+  <div class="footline">The reports did not merely produce a summary. They changed what every specialist was asked to do next.</div>
+</section>
+
+<!-- 7 — WORKED EXAMPLE RESULT -->
+<section class="slide">
+  <span class="tag next">Italian market entry · Round two</span>
+  <h2>A narrower, more defensible entry</h2>
+  <p class="kicker">The Orchestrator used the conflict to commission focused work, then reconciled the new evidence.</p>
+
+  <div class="recommendation-panel">
+    <span class="num">Recommended entry strategy</span>
+    <h3>250g premium medium-roast whole-bean coffee</h3>
+    <p>For younger urban Italian home-espresso consumers, positioned around traceable origin and modern Italian coffee culture.</p>
+  </div>
+
+  <div class="reason-row">
+    <div class="reason market">
+      <span>Market</span>
+      <strong>Narrower, but credible demand</strong>
+      <p>Urban consumers aged roughly 25–40 already make espresso from whole beans and will pay for an affordable premium ritual.</p>
+    </div>
+    <div class="reason product">
+      <span>Product</span>
+      <strong>Still practical to make</strong>
+      <p>Medium roast and whole-bean production use existing capabilities; the main addition is a premium 250g bag.</p>
+    </div>
+    <div class="reason competitive">
+      <span>Competitive</span>
+      <strong>Usable headroom</strong>
+      <p>The combination of modern home espresso, traceable origin and contemporary design is more defensible than traditional ground coffee.</p>
+    </div>
+  </div>
+
+  <div class="footline">Not the largest market. Not the emptiest whitespace. The best balance of demand, differentiation and execution.</div>
 </section>
 
 <!-- 8 — ROADMAP -->
@@ -635,52 +893,11 @@
   <div class="footline">V2 is a controlled test of one claim: linked specialists produce a better, more inspectable decision.</div>
 </section>
 
-<!-- 9 — DEMO CONTRACT -->
-<section class="slide">
-  <div class="eyebrow">The demo contract</div>
-  <h2>Four things to watch next</h2>
-  <p class="kicker">The research is synthetic. Judge whether the interaction turns conflicting evidence into a controlled decision.</p>
-
-  <div class="watch-list">
-    <div class="watch-item">
-      <span class="watch-num">01</span>
-      <div>
-        <h3>A contradiction surfaces</h3>
-        <p>Strong demand and feasibility collide with weak competitive headroom.</p>
-      </div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">02</span>
-      <div>
-        <h3>The next brief changes</h3>
-        <p>Round-two assignments name the findings that triggered them.</p>
-      </div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">03</span>
-      <div>
-        <h3>The human owns the trade-off</h3>
-        <p>One material priority is escalated; locked constraints remain intact.</p>
-      </div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">04</span>
-      <div>
-        <h3>The recommendation closes the loop</h3>
-        <p>It explains why the answer won and which risks remain.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="decision-bar"><b>If those proof points hold:</b> approve scoping and running a bounded V2 live-agent pilot.</div>
-  <div class="footline">Next up: the working prototype.</div>
-</section>
-
 </div>
 
 <div class="nav">
   <button id="prev" aria-label="Previous">‹</button>
-  <span id="count">1 / 9</span>
+  <span id="count">1 / 8</span>
   <button id="next" aria-label="Next">›</button>
 </div>
 
