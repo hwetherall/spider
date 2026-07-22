@@ -156,6 +156,171 @@
     content: "→"; position: absolute; left: 0; color: var(--accent);
   }
   ul.plain li b { color: var(--ink); font-weight: 620; }
+
+  .case-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) 70px minmax(0, .95fr);
+    align-items: stretch;
+    gap: 1.4vw;
+    margin-top: 1.5vh;
+  }
+  .evidence-stack {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .evidence-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.2vw;
+    align-items: center;
+    min-height: 8.6vh;
+    padding: 1.25vh .5vw;
+    border-bottom: 1px solid var(--line);
+  }
+  .evidence-row:last-child { border-bottom: 0; }
+  .evidence-who {
+    font-size: clamp(9px, .9vw, 12px);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .evidence-row:nth-child(2) .evidence-who { color: var(--good); }
+  .evidence-row:nth-child(3) .evidence-who { color: var(--warn); }
+  .evidence-claim {
+    font-size: clamp(13px, 1.32vw, 19px);
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .case-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hub);
+    font-size: clamp(28px, 4vw, 58px);
+  }
+  .outcome-stack {
+    display: grid;
+    grid-template-rows: 1fr 1.15fr;
+    gap: 1.2vh;
+  }
+  .outcome {
+    padding: 1.6vh 1.3vw;
+    border-left: 3px solid var(--warn);
+    background: rgba(224,122,95,.08);
+  }
+  .outcome.orchestrated {
+    border-left-color: var(--hub);
+    background: rgba(123,108,246,.09);
+  }
+  .outcome-label {
+    display: block;
+    margin-bottom: .65vh;
+    font-size: clamp(9px, .86vw, 12px);
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--warn);
+  }
+  .outcome.orchestrated .outcome-label { color: var(--hub); }
+  .outcome strong {
+    display: block;
+    font-size: clamp(13px, 1.35vw, 19px);
+    line-height: 1.3;
+    margin-bottom: .5vh;
+  }
+  .outcome p {
+    color: var(--muted);
+    font-size: clamp(11px, 1.05vw, 15px);
+    line-height: 1.4;
+  }
+  .control-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: .5vh;
+  }
+  .control-item {
+    padding: 1.2vh 1.2vw;
+    border-right: 1px solid var(--line);
+  }
+  .control-item:last-child { border-right: 0; }
+  .control-label {
+    display: block;
+    margin-bottom: .45vh;
+    font-size: clamp(8px, .78vw, 11px);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--hub);
+  }
+  .control-item.human .control-label { color: #e0b24d; }
+  .control-item.never .control-label { color: var(--warn); }
+  .control-item p {
+    color: var(--ink);
+    font-size: clamp(10px, 1vw, 14px);
+    line-height: 1.35;
+  }
+  .watch-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 2vh;
+  }
+  .watch-item {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 1vw;
+    align-items: center;
+    min-height: 10vh;
+    padding: 1.5vh 1.3vw;
+    background: var(--panel);
+  }
+  .watch-num {
+    color: var(--accent);
+    font-size: clamp(16px, 1.8vw, 26px);
+    font-weight: 650;
+  }
+  .watch-item h3 {
+    font-size: clamp(12px, 1.28vw, 18px);
+    margin-bottom: .35vh;
+  }
+  .watch-item p {
+    color: var(--muted);
+    font-size: clamp(10px, .98vw, 14px);
+    line-height: 1.35;
+  }
+  .decision-bar {
+    margin-top: 1.6vh;
+    padding: 1.5vh 1.3vw;
+    border-left: 4px solid var(--good);
+    background: rgba(107,191,138,.09);
+    font-size: clamp(12px, 1.2vw, 17px);
+    line-height: 1.4;
+  }
+  .decision-bar b { color: var(--good); }
+
+  .nav button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  @media (max-width: 760px) {
+    .slide { padding-left: 5vw; padding-right: 5vw; }
+    .c3, .c4 { grid-template-columns: repeat(2, 1fr); }
+    .case-flow { grid-template-columns: 1fr; }
+    .case-arrow { transform: rotate(90deg); min-height: 3vh; }
+    .evidence-row { grid-template-columns: 100px 1fr; }
+    .watch-list, .control-strip { grid-template-columns: 1fr; }
+    .control-item { border-right: 0; border-bottom: 1px solid var(--line); }
+    .control-item:last-child { border-bottom: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide { animation: none; }
+    .progress { transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -166,15 +331,15 @@
 <section class="slide active">
   <div class="eyebrow">Innovera · Architecture Proposal</div>
   <h1>From a pipeline<br>to a network.</h1>
-  <p class="sub">Our agents currently write a document. We want them to reach a decision — and to tell us honestly what risk is left standing when they do.</p>
-  <div class="footline">Harry &nbsp;·&nbsp; framing ahead of the working prototype</div>
+  <p class="sub">Three specialist agents can produce three correct reports and still fail to recognise the key trade-off. The next step is bulding a system that works agentically, not programmatically.</p>
+  <div class="footline">A short framing before the working prototype</div>
 </section>
 
 <!-- 2 — TODAY -->
 <section class="slide">
   <span class="tag now">How it works today</span>
   <h2>A relay race</h2>
-  <p class="kicker">Each agent completes its chapter and hands over. The baton only moves one way.</p>
+  <p class="kicker">Each agent completes a chapter and hands over. Findings move one way, leading to confusion and .</p>
   <svg viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
@@ -212,41 +377,82 @@
       <text x="580" y="62" class="lbl-xs" text-anchor="middle">STEP 3</text>
     </g>
   </svg>
-  <div class="footline">Whatever Product &amp; Tech discovers at step 3 can never reach Market Research at step 1.</div>
+  <div class="footline">A late finding can be correct and still arrive too late to reshape the recommendation.</div>
 </section>
 
 <!-- 3 — THE COST -->
 <section class="slide">
   <span class="tag now">The cost</span>
   <h2>Good at coverage.<br>Poor at judgement.</h2>
-  <p class="kicker">A pipeline reliably makes sure every topic gets covered. It is a poor way to actually decide anything.</p>
+  <p class="kicker">A pipeline covers every topic. It does not own the trade-off between them.</p>
 
   <div class="card warn" style="border-left-width:4px; padding:2.4vh 2vw; margin-bottom:1.5vh">
     <h3 style="font-size:clamp(15px,1.75vw,25px); margin-bottom:1vh">No one owns the trade-off</h3>
     <p style="font-size:clamp(12px,1.28vw,18px); max-width:76ch; color:var(--ink)">
-      The call that matters sits between chapters, not inside them. Market finds demand; Competitive finds crowding. Nobody is responsible for weighing one against the other — so the tension never resolves into a decision.
+      Market finds demand. Competitive finds crowding. Product finds feasibility. The call that matters sits between those findings, not inside any one report.
     </p>
   </div>
 
   <div class="cards c2">
     <div class="card warn">
       <h3>Late findings land too late</h3>
-      <p>Product &amp; Tech runs last. If it surfaces something that should have reshaped the market read, that chapter is already written — and nobody goes back.</p>
+      <p>A constraint found at the end cannot redirect work that has already been completed.</p>
     </div>
     <div class="card warn">
-      <h3>Both sides just get printed</h3>
-      <p>When two agents contradict each other, the pipeline ships both statements and leaves the reader to decide who was right.</p>
+      <h3>Contradictions become homework</h3>
+      <p>The pipeline prints both sides and leaves leadership to reconcile them.</p>
     </div>
   </div>
 
   <div class="footline">Every chapter can be individually correct and the recommendation still be wrong.</div>
 </section>
 
-<!-- 4 — THE SHIFT -->
+<!-- 4 — WORKED EXAMPLE -->
+<section class="slide">
+  <span class="tag now">A concrete example</span>
+  <h2>One coffee decision.<br>Three valid answers.</h2>
+  <p class="kicker">Italy is locked. One premium SKU. Existing equipment wherever possible.</p>
+
+  <div class="case-flow">
+    <div class="evidence-stack">
+      <div class="evidence-row">
+        <span class="evidence-who">Market</span>
+        <span class="evidence-claim">Familiar espresso has the strongest demand.</span>
+      </div>
+      <div class="evidence-row">
+        <span class="evidence-who">Product</span>
+        <span class="evidence-claim">The same option is easiest to manufacture.</span>
+      </div>
+      <div class="evidence-row">
+        <span class="evidence-who">Competitive</span>
+        <span class="evidence-claim">It also enters the most saturated territory.</span>
+      </div>
+    </div>
+
+    <div class="case-arrow" aria-hidden="true">→</div>
+
+    <div class="outcome-stack">
+      <div class="outcome">
+        <span class="outcome-label">Pipeline outcome</span>
+        <strong>Three true statements.</strong>
+        <p>One unresolved choice is handed to the reader.</p>
+      </div>
+      <div class="outcome orchestrated">
+        <span class="outcome-label">Orchestrator response</span>
+        <strong>Name the tension. Ask the priority. Re-plan the work.</strong>
+        <p>The second round exists because of what the first round found.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footline">The demo will resolve this decision. The point is not the coffee — it is whether the system can turn conflict into the next useful question.</div>
+</section>
+
+<!-- 5 — THE SHIFT -->
 <section class="slide">
   <span class="tag next">The shift</span>
-  <h2>Hub and spoke</h2>
-  <p class="kicker">Every specialist talks to one Orchestrator. It reasons over what comes back, then sends out the next round of work.</p>
+  <h2>One owner for the decision</h2>
+  <p class="kicker">Specialists keep domain authority. The Orchestrator keeps canonical state and owns reconciliation.</p>
   <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
@@ -274,7 +480,7 @@
     <circle cx="450" cy="178" r="82" fill="#1a1626" stroke="#7b6cf6" stroke-width="3"/>
     <circle cx="450" cy="178" r="74" fill="none" stroke="#7b6cf6" stroke-width="1" opacity=".35"/>
     <text x="450" y="170" class="lbl" text-anchor="middle" style="font-size:16px">Orchestrator</text>
-    <text x="450" y="192" class="lbl-sm" text-anchor="middle">weighs · reconciles</text>
+    <text x="450" y="192" class="lbl-sm" text-anchor="middle">state · trade-offs · next plans</text>
 
     <!-- spoke nodes — equal 120° layout -->
     <rect x="148" y="28" width="168" height="70" rx="10" fill="#151b23" stroke="#263040" stroke-width="1.5"/>
@@ -297,15 +503,15 @@
       <text x="580" y="412" class="lbl-sm">Agent returns a report</text>
     </g>
   </svg>
-  <div class="footline">Specialists never talk to each other directly. Their findings meet <em>inside the Orchestrator</em> — one place where the contradictions have to be faced.</div>
+  <div class="footline">Evidence meets in one governed state. Contradictions cannot hide between separate chapters.</div>
 </section>
 
-<!-- 5 — LOOP -->
+<!-- 6 — LOOP -->
 <section class="slide">
   <span class="tag next">The loop</span>
-  <h2>The second dispatch is the proof</h2>
-  <p class="kicker">Anyone can run three agents in parallel and summarise them. What proves the system is reasoning is that round two looks different <i>because of</i> round one.</p>
-  <svg viewBox="0 0 1000 268" xmlns="http://www.w3.org/2000/svg">
+  <h2>The loop has a human boundary</h2>
+  <p class="kicker">Round two changes because of round one. A human steps in only when evidence cannot settle a material preference.</p>
+  <svg viewBox="0 0 1000 268" xmlns="http://www.w3.org/2000/svg" style="max-height:30vh">
     <defs>
       <marker id="ar4" markerWidth="8" markerHeight="8" refX="6.5" refY="2.6" orient="auto">
         <path d="M0,0 L6.5,2.6 L0,5.2 Z" fill="#6b7684"/>
@@ -345,8 +551,8 @@
 
       <!-- Ask you · human -->
       <rect x="690" y="74" width="128" height="60" rx="8" fill="#241d0f" stroke="#e0b24d" stroke-width="1.6"/>
-      <text x="754" y="102"  class="lbl" text-anchor="middle" style="font-size:12px">Ask you</text>
-      <text x="754" y="120" class="lbl-sm" text-anchor="middle">only if it matters</text>
+      <text x="754" y="102"  class="lbl" text-anchor="middle" style="font-size:12px">Human decision</text>
+      <text x="754" y="120" class="lbl-sm" text-anchor="middle">material trade-off</text>
 
       <!-- Converged · orchestrator -->
       <rect x="858" y="74" width="128" height="60" rx="8" fill="#1a1626" stroke="#7b6cf6" stroke-width="1.6"/>
@@ -363,61 +569,110 @@
       <text x="430" y="216" class="lbl-sm" text-anchor="middle" fill="#7b6cf6">re-plan — every new brief names what caused it</text>
     </g>
   </svg>
-  <div class="footline">Round-two briefs carry their trigger: <em>"revised because Competitive found X"</em>. That trace is what makes the reasoning auditable instead of theatrical.</div>
-</section>
 
-<!-- 6 — DONE -->
-<section class="slide">
-  <span class="tag next">The product</span>
-  <h2>A decision tool.<br>Not a chapter printer.</h2>
-  <p class="kicker">The Orchestrator holds what Market, Competitive, and Product each found — names the tension between them — then sends a fresh plan back to every specialist. That loop is the product.</p>
-
-  <div class="cards c2" style="margin-top:2vh">
-    <div class="card good">
-      <span class="num" style="color:var(--good)">WHAT YOU SEE</span>
-      <h3>Tension made visible</h3>
-      <p>A recommendation shaped by cross-agent conflict, not three separate chapters. Residual risks called out. Round-two briefs that name their trigger — so you can see <i>why</i> the answer moved.</p>
+  <div class="control-strip">
+    <div class="control-item">
+      <span class="control-label">System may</span>
+      <p>Reconcile evidence and issue targeted follow-up work.</p>
     </div>
-    <div class="card hub">
-      <span class="num" style="color:var(--hub)">WHY THIS STACK</span>
-      <h3>A loop you cannot fake in chat</h3>
-      <p>Compare across agents, re-plan, dispatch into specialists that already have live tools and domain rules. That out → compare → re-plan cycle is not what a $20/month chat subscription gives you.</p>
+    <div class="control-item human">
+      <span class="control-label">Human decides</span>
+      <p>Preference-sensitive choices that change the strategy.</p>
+    </div>
+    <div class="control-item never">
+      <span class="control-label">System never</span>
+      <p>Silently changes a locked constraint.</p>
     </div>
   </div>
 
-  <div class="footline">The value lives in the connections <em>between</em> agents — and in forcing the tension into the open.</div>
+  <div class="footline">Every revised brief names its trigger. Every consequential choice has an owner.</div>
 </section>
 
-<!-- 7 — ROADMAP -->
+<!-- 7 — PRODUCT -->
+<section class="slide">
+  <span class="tag next">The product</span>
+  <h2>A governed decision loop.<br>Not more reports.</h2>
+  <p class="kicker">The product is the controlled movement from specialist evidence to a recommendation leadership can inspect.</p>
+
+  <div class="cards c2" style="margin-top:2vh">
+    <div class="card good">
+      <span class="num" style="color:var(--good)">DECISION QUALITY</span>
+      <h3>Conflict changes the work</h3>
+      <p>The system compares specialist evidence, names the tension, and targets the next round at what remains unresolved.</p>
+    </div>
+    <div class="card hub">
+      <span class="num" style="color:var(--hub)">DECISION TRACE</span>
+      <h3>Every change has a cause</h3>
+      <p>Canonical state, causal triggers, human escalation, and residual risks make the recommendation auditable from brief to outcome.</p>
+    </div>
+  </div>
+
+  <div class="footline">The value is not agent count. It is a decision process that can explain <em>what changed, why, and who decided</em>.</div>
+</section>
+
+<!-- 8 — ROADMAP -->
 <section class="slide">
   <span class="tag next">The path</span>
-  <h2>How we get there</h2>
-  <p class="kicker">The architecture is the same at every stage. Prove it small, then run it live, then widen the web.</p>
+  <h2>Proof now. Pilot next.</h2>
+  <p class="kicker">Keep the interaction model stable. Change the evidence source only after the loop earns the right to go live.</p>
   <div class="cards c3">
     <div class="card">
       <span class="num">V1 · THIS PROTOTYPE</span>
       <h3>Prove the loop</h3>
-      <p>Three agents, scripted findings, real orchestration. The research is fabricated so the demo is repeatable — but the plan → report → reconcile loop genuinely runs.</p>
+      <p>Three specialists, deterministic findings, and a real plan → report → reconcile → re-plan interaction.</p>
     </div>
     <div class="card hub">
-      <span class="num" style="color:var(--hub)">V2 · LIVE</span>
-      <h3>Let the agents run</h3>
-      <p>Claude Managed Agents replace the fixtures behind the same schemas. A deterministic solver ranks the full option space; the model explains the trade-offs and writes the next round of plans.</p>
+      <span class="num" style="color:var(--hub)">V2 · BOUNDED PILOT</span>
+      <h3>Run one decision live</h3>
+      <p>Use live specialist research on one real opportunity. Measure decision quality, traceability, and time against the current linear process.</p>
     </div>
     <div class="card good">
-      <span class="num" style="color:var(--good)">V3 · SCALE</span>
-      <h3>Widen the web</h3>
-      <p>Extend from three agents to all ten — Revenue, Go-to-Market, Unit Economics and the rest. No redesign: each one plugs into the same hub.</p>
+      <span class="num" style="color:var(--good)">LATER · EXPAND</span>
+      <h3>Add specialists carefully</h3>
+      <p>Bring in Revenue, Go-to-Market, Unit Economics, and others only after the pilot proves the decision loop adds value.</p>
     </div>
   </div>
-  <div class="footline">Every existing agent keeps its domain, tools and skills. We are adding a layer — <em>not</em> rewriting one.</div>
+  <div class="footline">V2 is a controlled test of one claim: linked specialists produce a better, more inspectable decision.</div>
 </section>
 
-<!-- 8 — CLOSE -->
+<!-- 9 — DEMO CONTRACT -->
 <section class="slide">
-  <div class="eyebrow">The ask</div>
-  <h1 style="font-size:clamp(26px,3.9vw,56px)">A pipeline produces coverage.<br>A network produces a decision.</h1>
-  <p class="sub">The prototype that follows is deliberately scripted — the research is fabricated, the orchestration is real. What I want reviewed is the interaction architecture, not the findings.</p>
+  <div class="eyebrow">The demo contract</div>
+  <h2>Four things to watch next</h2>
+  <p class="kicker">The research is synthetic. Judge whether the interaction turns conflicting evidence into a controlled decision.</p>
+
+  <div class="watch-list">
+    <div class="watch-item">
+      <span class="watch-num">01</span>
+      <div>
+        <h3>A contradiction surfaces</h3>
+        <p>Strong demand and feasibility collide with weak competitive headroom.</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">02</span>
+      <div>
+        <h3>The next brief changes</h3>
+        <p>Round-two assignments name the findings that triggered them.</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">03</span>
+      <div>
+        <h3>The human owns the trade-off</h3>
+        <p>One material priority is escalated; locked constraints remain intact.</p>
+      </div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">04</span>
+      <div>
+        <h3>The recommendation closes the loop</h3>
+        <p>It explains why the answer won and which risks remain.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="decision-bar"><b>If those proof points hold:</b> approve scoping and running a bounded V2 live-agent pilot.</div>
   <div class="footline">Next up: the working prototype.</div>
 </section>
 
@@ -425,7 +680,7 @@
 
 <div class="nav">
   <button id="prev" aria-label="Previous">‹</button>
-  <span id="count">1 / 8</span>
+  <span id="count">1 / 9</span>
   <button id="next" aria-label="Next">›</button>
 </div>
 
